@@ -1,0 +1,20 @@
+Problem we wish to address:
+- EM problems are often very unintuitive due to them being hard to visualize fully.
+- There are no good visual aids to really grasp the concepts we learn and problems we do
+
+Over arching goal:
+- Come up with various visualizations and plots for different problems in homework assignments we've had over the course of the two semesters
+using Matplotlib
+- Typically would use problems that can be solved numerically and result in a cool animation over time. Should add manipulation to parameters 
+over time in order to accomplish this.
+- Have 3 - 4 animations by the time we have final presentations.
+
+Problem 7.22
+- Show the plot of the EMF, Current, and Flux for both loops
+- Show what happens as the separation between the two loops changes (show what happens if the small loop were to go through the big loop?)
+- Animate these plots
+- Animate the interaction with vector fields
+- Use different functions for the separation between the two (sinusoidal, linear)
+- Show the vector field along side the changing functions of current, flux, emf, etc.
+
+Example 7.5
