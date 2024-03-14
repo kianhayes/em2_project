@@ -53,3 +53,5 @@ def update(frame):
 # Animation and plotting
 ani = animation.FuncAnimation(fig=fig, func=update, interval=1e-6, cache_frame_data=False)
 plt.show()
+
+print("Test")
