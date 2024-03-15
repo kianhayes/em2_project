@@ -9,14 +9,14 @@ import pandas as pd
 
 # Would like to use this as a test to eventually get to a point where we can animate the changing magnetic field as the current changes in a wire
 
-I = 0.02
-a = 10
+I = 0.02 # Initial Current
+a = 10 # Radius of loop
 colors_in_quiver = 100
-headwidth=3
-minlength=1
-pivot='tail'
-lim = 0.25
-dx = 1000
+headwidth=3 # Head of line size
+minlength=1 # Minimum length of line
+pivot='tail' # Location on field line where the vector begins 
+lim = 0.25 
+dx = 1000 # Spacing between vector field points
 
 x, y = np.meshgrid(np.linspace(-lim, lim, dx),  
                    np.linspace(-lim, lim, dx)) 

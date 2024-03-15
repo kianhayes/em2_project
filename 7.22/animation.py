@@ -35,7 +35,7 @@ for t in ts:
     Is.append(I_value)
     zs.append(z_value)
 
-# Defining different the various lines to be graphed
+# Defining the different lines to be graphed
 fig, axs = plt.subplots(2)
 line1 = axs[0].plot(ts[0], Is[0])[0]
 line2 = axs[1].plot(ts[0], fluxs[0])[0]
