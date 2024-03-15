@@ -14,23 +14,23 @@ ts = np.linspace(0,100,1000)
 Is = []
 fluxs = []
 z0 = 100 # Loops initial separation
-#zs = []
+zs = []
 emfs = []
 
 for t in ts:
-    #z_value = 2*t+z0
+    z_value = (t/10)**2 + z0
     I_value = I0*np.sin(omega*t)
-    flux_value = (constants.mu_0 * I_value * constants.pi * a**2 * b**2) / (2*(b**2 + z0**2)**(3/2))
+    flux_value = (constants.mu_0 * I_value * constants.pi * a**2 * b**2) / (2*(b**2 + z_value**2)**(3/2))
     fluxs.append(flux_value)
     Is.append(I_value)
-    #zs.append(z_value)
+    zs.append(z_value)
 
 fig, axs = plt.subplots(3)
 axs[0].plot(ts, Is)
-axs[0].set_title("Current")
+axs[0].set_title("Current Through Loop A")
 axs[1].plot(ts, fluxs)
-axs[1].set_title("Flux")
-#axs[2].plot(ts, zs)
-#axs[2].set_title("Separation")
+axs[1].set_title("Flux Through Loop B")
+axs[2].plot(ts, zs)
+axs[2].set_title("Separation Between Loop A and B")
 
 plt.show()
