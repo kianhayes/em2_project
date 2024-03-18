@@ -25,6 +25,7 @@ Is = []
 fluxs = []
 zs = [] 
 emfs = []
+old_flux = 0
 
 # For loop that does all calculations for each time step
 for t in ts:
@@ -32,15 +33,19 @@ for t in ts:
     I_value = I0*np.sin(omega*t)
     flux_value = (constants.mu_0 * I_value * constants.pi * a**2 * b**2) / (2*(b**2 + z_value**2)**(3/2))
     fluxs.append(flux_value)
+    emfs.append((flux_value-old_flux)/0.1)
+    old_flux = flux_value
     Is.append(I_value)
     zs.append(z_value)
 
 # Defining different the various lines to be graphed
-fig, axs = plt.subplots(2)
+fig, axs = plt.subplots(3)
 line1 = axs[0].plot(ts[0], Is[0])[0]
 line2 = axs[1].plot(ts[0], fluxs[0])[0]
+line3 = axs[2].plot(ts[0], emfs[0])[0]
 axs[0].set(xlim=[0, 100], ylim=[-3, 3], xlabel='Time [s]', ylabel='Current through Loop B')
 axs[1].set(xlim=[0, 100], ylim=[-10e-11, 10e-11], xlabel='Time [s]', ylabel='Flux through Loop A')
+axs[2].set(xlim=[0, 100], ylim=[-10e-12, 10e-12], xlabel='Time [s]', ylabel='EMF')
 
 # Animation Function that updates the graph
 def update(frame):
@@ -48,7 +53,11 @@ def update(frame):
     line1.set_ydata(Is[:frame])
     line2.set_xdata(ts[:frame])
     line2.set_ydata(fluxs[:frame])
+    line3.set_xdata(ts[:frame])
+    line3.set_ydata(emfs[:frame])
     return (line1, line2)
+
+print(emfs)
 
 # Animation and plotting
 ani = animation.FuncAnimation(fig=fig, func=update, interval=1e-6, cache_frame_data=False)

@@ -27,18 +27,25 @@ theta = np.arctan(y/x)
 u = ((constants.mu_0*I*a**2) / (4 * r**3))*(2*np.cos(theta))
 v = ((constants.mu_0*I*a**2) / (4 * r**3))*(np.sin(theta))
 
-plt.quiver(x, y, u, v,
-          [pd.qcut(u.flatten(), q=colors_in_quiver, labels=False)],
-          headwidth=headwidth,
-          minlength=minlength,
-          pivot=pivot,
-          cmap='inferno')
+fig,ax=plt.subplots(1,1)
+#plt.rcParams["figure.figsize"] = [7.00, 3.50]
+#plt.rcParams["figure.autolayout"] = True
+#data = np.random.rand(4, 4)
+#ax=plt.imshow(r, extent=[-1, 1, -1, 1])
+ax.contourf(x, y, u)
+plt.show()
+
+#plt.quiver(x, y, u, v,
+#          [pd.qcut(u.flatten(), q=colors_in_quiver, labels=False)],
+#          headwidth=headwidth,
+#          minlength=minlength,
+#          pivot=pivot,
+#          cmap='inferno')
 
 plt.title('Dipole Magnetic Field') 
 
-plt.xlim(-lim, lim) 
-plt.ylim(-lim, lim) 
+#plt.xlim(-lim, lim) 
+#plt.ylim(-lim, lim) 
   
-#plt.grid() 
-plt.show() 
+#plt.grid()  
 
