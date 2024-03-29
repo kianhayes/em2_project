@@ -14,7 +14,7 @@ a = 10 # Radius of loop
 colors_in_quiver = 100
 headwidth=3 # Head of line size
 minlength=1 # Minimum length of line
-pivot='tail' # Location on field line where the vector begins 
+pivot='tail' # Location on field line where the vector is pivoted 
 lim = 0.25 
 dx = 1000 # Spacing between vector field points
 
@@ -27,25 +27,29 @@ theta = np.arctan(y/x)
 u = ((constants.mu_0*I*a**2) / (4 * r**3))*(2*np.cos(theta))
 v = ((constants.mu_0*I*a**2) / (4 * r**3))*(np.sin(theta))
 
-fig,ax=plt.subplots(1,1)
+print(u)
+
+#fig,ax=plt.subplots(1,1)
 #plt.rcParams["figure.figsize"] = [7.00, 3.50]
 #plt.rcParams["figure.autolayout"] = True
 #data = np.random.rand(4, 4)
 #ax=plt.imshow(r, extent=[-1, 1, -1, 1])
-ax.contourf(x, y, u)
-plt.show()
+#ax.contourf([r,theta,],v)
+#ax.set_xlim(-3e-5, 3e-5)
+#ax.set_ylim(-3e-5, 3e-5)
+#plt.show()
 
-#plt.quiver(x, y, u, v,
-#          [pd.qcut(u.flatten(), q=colors_in_quiver, labels=False)],
-#          headwidth=headwidth,
-#          minlength=minlength,
-#          pivot=pivot,
-#          cmap='inferno')
+plt.quiver(x, y, u, v,
+          [pd.qcut(u.flatten(), q=colors_in_quiver, labels=False)],
+          headwidth=headwidth,
+          minlength=minlength,
+          pivot=pivot,
+          cmap='inferno')
 
 plt.title('Dipole Magnetic Field') 
 
-#plt.xlim(-lim, lim) 
-#plt.ylim(-lim, lim) 
-  
+plt.xlim(-lim, lim) 
+plt.ylim(-lim, lim) 
+plt.show()
 #plt.grid()  
 

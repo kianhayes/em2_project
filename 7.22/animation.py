@@ -45,7 +45,7 @@ line2 = axs[1].plot(ts[0], fluxs[0])[0]
 line3 = axs[2].plot(ts[0], emfs[0])[0]
 axs[0].set(xlim=[0, 100], ylim=[-3, 3], xlabel='Time [s]', ylabel='Current through Loop B')
 axs[1].set(xlim=[0, 100], ylim=[-10e-11, 10e-11], xlabel='Time [s]', ylabel='Flux through Loop A')
-axs[2].set(xlim=[0, 100], ylim=[-10e-12, 10e-12], xlabel='Time [s]', ylabel='EMF')
+axs[2].set(xlim=[0, 100], ylim=[-5e-11, 5e-11], xlabel='Time [s]', ylabel='EMF')
 
 # Animation Function that updates the graph
 def update(frame):
@@ -57,10 +57,7 @@ def update(frame):
     line3.set_ydata(emfs[:frame])
     return (line1, line2)
 
-print(emfs)
-
 # Animation and plotting
 ani = animation.FuncAnimation(fig=fig, func=update, interval=1e-6, cache_frame_data=False)
+fig.tight_layout()
 plt.show()
-
-print("Test")

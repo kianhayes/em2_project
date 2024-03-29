@@ -27,10 +27,11 @@ for t in ts:
 
 fig, axs = plt.subplots(3)
 axs[0].plot(ts, Is)
-axs[0].set_title("Current Through Loop A")
+axs[0].set_title("Current Through Loop A (A)")
 axs[1].plot(ts, fluxs)
-axs[1].set_title("Flux Through Loop B")
+axs[1].set_title("Flux Through Loop B (Wb)")
 axs[2].plot(ts, zs)
 axs[2].set_title("Separation Between Loop A and B")
+fig.tight_layout()
 
 plt.show()
