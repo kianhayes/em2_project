@@ -10,7 +10,7 @@ import pandas as pd
 # Would like to use this as a test to eventually get to a point where we can animate the changing magnetic field as the current changes in a wire
 
 I = 0.02 # Initial Current
-a = 10 # Radius of loop
+a = 1000 # Radius of loop
 colors_in_quiver = 100
 headwidth=3 # Head of line size
 minlength=1 # Minimum length of line
@@ -28,28 +28,27 @@ u = ((constants.mu_0*I*a**2) / (4 * r**3))*(2*np.cos(theta))
 v = ((constants.mu_0*I*a**2) / (4 * r**3))*(np.sin(theta))
 
 print(u)
+'''
+fig,ax=plt.subplots(1,1)
+plt.rcParams["figure.figsize"] = [7.00, 3.50]
+plt.rcParams["figure.autolayout"] = True
+data = np.random.rand(4, 4)
+ax=plt.imshow(r, extent=[-1, 1, -1, 1])
+#ax.contourf(u,v)
+ax.set_xlim(-3e-5, 3e-5)
+ax.set_ylim(-3e-5, 3e-5)
+'''
 
-#fig,ax=plt.subplots(1,1)
-#plt.rcParams["figure.figsize"] = [7.00, 3.50]
-#plt.rcParams["figure.autolayout"] = True
-#data = np.random.rand(4, 4)
-#ax=plt.imshow(r, extent=[-1, 1, -1, 1])
-#ax.contourf([r,theta,],v)
-#ax.set_xlim(-3e-5, 3e-5)
-#ax.set_ylim(-3e-5, 3e-5)
-#plt.show()
-
-plt.quiver(x, y, u, v,
-          [pd.qcut(u.flatten(), q=colors_in_quiver, labels=False)],
+fig = plt.quiver(x, y, u, v,
           headwidth=headwidth,
           minlength=minlength,
           pivot=pivot,
           cmap='inferno')
-
-plt.title('Dipole Magnetic Field') 
+          #clim= [0,100])
 
 plt.xlim(-lim, lim) 
 plt.ylim(-lim, lim) 
+plt.colorbar()
+plt.title('Dipole Magnetic Field') 
 plt.show()
-#plt.grid()  
 
