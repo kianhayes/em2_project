@@ -24,8 +24,6 @@ z0 = 100 # Initial separation between loops
 Is = []
 fluxs = []
 zs = [] 
-emfs = []
-old_flux = 0
 
 # For loop that does all calculations for each time step
 for t in ts:
@@ -33,13 +31,14 @@ for t in ts:
     I_value = I0*np.sin(omega*t)
     flux_value = (constants.mu_0 * I_value * constants.pi * a**2 * b**2) / (2*(b**2 + z_value**2)**(3/2))
     fluxs.append(flux_value)
-    emfs.append((flux_value-old_flux)/0.1)
     old_flux = flux_value
     Is.append(I_value)
     zs.append(z_value)
 
+emfs = -np.gradient(fluxs, ts)
+
 # Defining different the various lines to be graphed
-fig, axs = plt.subplots(3)
+fig, axs = plt.subplots(4)
 line1 = axs[0].plot(ts[0], Is[0])[0]
 line2 = axs[1].plot(ts[0], fluxs[0])[0]
 line3 = axs[2].plot(ts[0], emfs[0])[0]
@@ -57,7 +56,8 @@ def update(frame):
     line3.set_ydata(emfs[:frame])
     return (line1, line2)
 
+
 # Animation and plotting
 ani = animation.FuncAnimation(fig=fig, func=update, interval=1e-6, cache_frame_data=False)
-fig.tight_layout()
+#fig.tight_layout()
 plt.show()
