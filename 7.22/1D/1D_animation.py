@@ -4,12 +4,12 @@ from scipy import constants
 from sympy import symbols, diff
 import matplotlib.animation as animation
 
-# This models the interaction between two loops of wire of different radii separated by a distance z with one of the loops having
-# a changing current in it. Specifically, current is flowing through loop B and the change in flux through loop a is calculated. The interaction is
-# animated over time to show how the flux through the loop is changing with time. In addition, the separation between the two loops changes as a 
-# function of time. Does this affect the magnetic field due to Faraday's Law?
-
-# Would like to be able to plot the two vector fields for the magnetic fields but not sure how to do that.
+'''
+This models the interaction between two loops of wire of different radii separated by a distance z with one of the loops having
+a changing current in it. Specifically, current is flowing through loop B and the change in flux through loop a is calculated. The interaction is
+animated over time to show how the flux through the loop is changing with time. In addition, the separation between the two loops changes as a 
+function of time. Does this affect the magnetic field due to Faraday's Law?
+'''
 
 # Constants
 a = 1 # Radius of small loop
