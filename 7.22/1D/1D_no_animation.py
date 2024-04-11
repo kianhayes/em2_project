@@ -6,7 +6,7 @@ import matplotlib.animation as animation
 
 a = 1e10 # Radius of small loop
 b = 4 # Radius of big loop
-f = 50 # Frequency of current
+f = 60 # Frequency of current
 omega = 2*constants.pi*f
 I0 = 2 # Peak Current
 ts = np.linspace(0,100,1000)
@@ -32,6 +32,5 @@ axs[1].plot(ts, fluxs)
 axs[1].set_title("Flux Through Loop B (Wb)")
 axs[2].plot(ts, zs)
 axs[2].set_title("Separation Between Loop A and B")
-fig.tight_layout()
 
 plt.show()
