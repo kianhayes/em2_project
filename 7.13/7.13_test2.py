@@ -90,3 +90,5 @@ plt.ylim(-10.0,10.0)
 plt.xlabel("$y$ (m)")
 plt.ylabel("$z$ (m)")
 plt.title("Motion of Charged Particle in a Magnetic Bottle")
+
+plt.show()
