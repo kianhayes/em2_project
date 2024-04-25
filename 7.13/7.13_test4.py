@@ -34,5 +34,4 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 ax.set_title('Magnetic Field at Time Step t={:.2f}'.format(t))
-
 plt.show()
