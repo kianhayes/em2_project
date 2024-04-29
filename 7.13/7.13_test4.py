@@ -14,25 +14,27 @@ x = np.linspace(-10, 10, num=100)
 y = np.linspace(-10, 10, num=100)
 z = np.linspace(0, 10, num=100)
 a = np.linspace(-10,10, num=100)
-ts = np.linspace(0, 100, 10)  # Selecting a single time step for visualization
+ts = np.linspace(0, 100, 10)
 fluxs = []
 X, Y = np.meshgrid(x, y)
 
-
 for t in ts:
-    flux = (1/4)*k*t**2*a**5
-    fluxs.append(flux)
+    flux_value = (1/4)*k*t**2*a**5
+    fluxs.append(flux_value)
 
-#ax = fig.add_subplot(projection='3d')
-plt.plot(ts, flux)
+print(ts)
+print(fluxs)
+plt.plot(ts, fluxs)
+plt.show()
+
 '''
 ax.set_xlabel('X', labelpad=20)
 ax.set_ylabel('Y', labelpad=20)
 ax.set_zlabel('Z', labelpad=20)
 ax.set_title("3D Scalar field")
 
-'''
-plt.show()
+
+
 # for t in t:
 #     # Calculate magnetic field magnitude at each point
 #     B = b_field(Y, t, k)
@@ -68,7 +70,7 @@ X_flat = X.flatten()
 Y_flat = Y.flatten()
 Z_flat = Z.flatten()
 
-'''
+
 #fig = plt.figure(figsize=(10, 8))
 #ax = fig.add_subplot(111, projection='3d')
 
