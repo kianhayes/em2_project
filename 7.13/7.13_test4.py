@@ -14,12 +14,10 @@ x = np.linspace(-10, 10, num=100)
 y = np.linspace(0, 100, num=100)
 z = np.linspace(0, 10, num=100)
 a = np.linspace(-10,10, num=100)
-ts = np.linspace(0, 100, 100)  # Selecting a single time step for visualization
-bf = []
+ts = np.linspace(0, 100, 10)
 fluxs = []
 emfs=[]
 X, Y = np.meshgrid(x, y)
-
 
 for t in ts:
     b_field = k*y**3*t**2
@@ -51,8 +49,11 @@ plt.show()
 #     flux = (1/4)*k*t**2*a**5
 #     fluxs.append(flux)
 
-# #ax = fig.add_subplot(projection='3d')
-# plt.plot(ts, flux)
+print(ts)
+print(fluxs)
+plt.plot(ts, fluxs)
+plt.show()
+
 '''
 ax.set_xlabel('X', labelpad=20)
 ax.set_ylabel('Y', labelpad=20)
@@ -96,7 +97,7 @@ ax.set_title("3D Scalar field")
 # Y_flat = Y.flatten()
 # Z_flat = Z.flatten()
 
-'''
+
 #fig = plt.figure(figsize=(10, 8))
 #ax = fig.add_subplot(111, projection='3d')
 
