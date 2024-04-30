@@ -21,7 +21,7 @@ X, Y = np.meshgrid(x, y)
 
 for t in ts:
     b_field = k*y**3*t**2
-    bf.append(b_field)
+    b_field.append(b_field)
 
 plt.plot()
 plt.show()
@@ -102,7 +102,7 @@ ax.set_title("3D Scalar field")
 #ax = fig.add_subplot(111, projection='3d')
 
 #ax.scatter(X_flat, Y_flat, Z_flat, c='b', s=sizes.flatten(), alpha=0.5)
-
+'''
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
