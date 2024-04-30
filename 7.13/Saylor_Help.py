@@ -38,19 +38,20 @@ for t in ts:
     flux_old=flux
     
 
-    plt.figure()
-    plotf = plt.plot(T, fluxs)
-    plt.ylim(0, 1e8)
-    plt.xlim(0, duration)
-    plt.show()
-    plt.savefig(f'7.13/figures2/magnetic_field/fluxes/{j}.png') # i don't know how to save each individual time step
+    # plt.figure()
+    # plotf = plt.plot(T, fluxs)
+    # plt.ylim(0, 1e8)
+    # plt.xlim(0, duration)
+    # plt.show()
+    # plt.savefig(f'7.13/figures2/magnetic_field/fluxes/{j}.png') # i don't know how to save each individual time step
     j=j+1
-# plt.figure()
-# #plotf = plt.plot(T, fluxs)
-# plotf = plt.plot(T, emfs)
-# #plt.ylim(0, 1e8)
-# plt.xlim(0, duration)
-# plt.show()
+plt.figure()
+#plotf = plt.plot(T, fluxs)
+plotf = plt.plot(T, fluxs)
+# plt.ylim(0, 1e8)
+plt.xlim(0, duration)
+plt.savefig(f'7.13/figures2/fluxs/flux_final.png')
+plt.show()
 
 
 
