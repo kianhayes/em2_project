@@ -42,7 +42,7 @@ for t in ts:
     plt.title(f'Magnetic Flux vs. Time at t={round(t,3)}')
     plt.ylabel("Flux")
     plt.xlabel("Time")
-    plt.ylim(0, 2.5e8)
+    plt.ylim(0, 3e9)
     plt.xlim(0, duration)
     plt.savefig(f'7.13/figures2/fluxs/{j}.png') # i don't know how to save each individual time step
     plt.close()
