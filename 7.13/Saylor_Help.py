@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.cm import ScalarMappable
 
-def Bfield(x,y,t):
+def Bfield(y,t):
     B=y**3 * t**2
     return B
-
 
 dt = 100
 duration = 100
@@ -29,29 +28,45 @@ dx=a/Nx
 dy=a/Nx
 flux_old=0.0
 for t in ts:
-    BXY = Bfield(X,Y,t)
+    BXY = Bfield(ys,t)
     flux = np.sum(np.sum(BXY))*dx*dy
 
     fluxs[j]=flux
     T[j]=t
     emfs[j] = (flux-flux_old)/DT    
-    flux_old=flux
+    flux_old = flux
     
-
-    # plt.figure()
-    # plotf = plt.plot(T, fluxs)
-    # plt.ylim(0, 1e8)
-    # plt.xlim(0, duration)
-    # plt.show()
-    # plt.savefig(f'7.13/figures2/magnetic_field/fluxes/{j}.png') # i don't know how to save each individual time step
+    plt.figure()
+    
+    plotf = plt.plot(ts, fluxs)
+    plt.title(f'Magnetic Flux vs. Time at t={round(t,3)}')
+    plt.ylabel("Flux")
+    plt.xlabel("Time")
+    plt.ylim(0, 2.5e8)
+    plt.xlim(0, duration)
+    plt.savefig(f'7.13/figures2/fluxs/{j}.png') # i don't know how to save each individual time step
+    plt.close()
+    
+    plot = plt.plot(ys, BXY)
+    plt.title(f'Magnetic Field vs. Y-position at t={round(t,3)}')
+    plt.ylabel("B(y,t)")
+    plt.xlabel("Y-position")
+    plt.xlim(0,40)
+    plt.ylim(0, 1e8)
+    plt.savefig(f'7.13/figures2/magnetic_field/{j}.png')
+    plt.close()
+    
+    
+    
+    plot = plt.plot(ts, emfs)
+    plt.title(f'EMF vs. Time at t={round(t,3)}')
+    plt.ylabel("EMF")
+    plt.xlabel("Time")
+    plt.ylim(0, .5e8)
+    plt.xlim(0, duration)
+    plt.savefig(f'7.13/figures2/emfs/{j}.png')
+    plt.close()
     j=j+1
-plt.figure()
-#plotf = plt.plot(T, fluxs)
-plotf = plt.plot(T, fluxs)
-# plt.ylim(0, 1e8)
-plt.xlim(0, duration)
-plt.savefig(f'7.13/figures2/fluxs/flux_final.png')
-plt.show()
 
 
 
